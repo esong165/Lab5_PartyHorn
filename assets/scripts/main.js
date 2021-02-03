@@ -57,7 +57,8 @@ function setHorn(){
     }
 }
 
-function playHorn(){
+function playHorn(event){
+    event.preventDefault();
     let audio = document.createElement("audio");
     audio.id = "horn";
     let source = document.createElement("source");
@@ -78,8 +79,5 @@ volumeSlider.addEventListener("input", setTextVolume);
 let horn = document.getElementById("audio-selection");
 horn.addEventListener("input", setHorn);
 
-let button = document.getElementById("honk-btn");
-button.type = "button";
-button.addEventListener("click", playHorn);
-
-
+let form = document.getElementById("party-horn-form");
+form.addEventListener("submit", playHorn);
