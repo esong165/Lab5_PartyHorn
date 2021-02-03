@@ -43,20 +43,10 @@ function setHorn(){
     }
 }
 
-let audio = document.createElement("audio");
-audio.id = "horn";
-let source = document.createElement("source");
-source.src = "./assets/media/audio/air-horn.mp3";
-source.type = "audio/mpeg";
-audio.appendChild(source);
-document.getElementsByTagName("main")[0].appendChild(audio);
-
 function playHorn(){
-    var x = document.getElementById("horn-sound");
-    var y = document.getElementById("volume-number").value;
-    audio.volume = y/100;
-    //document.getElementById("horn-sound").play();
-    audio.play();
+    let h = document.getElementById("horn-sound");
+    const y = document.getElementById("volume-number").value;
+    h.play();
 }
 
 let volumeNum = document.getElementById("volume-number");
@@ -67,6 +57,16 @@ volumeSlider.addEventListener("input", setTextVolume);
 let horn = document.getElementById("audio-selection");
 horn.addEventListener("input", setHorn);
 
-let button = document.getElementById("party-horn-form");
-button.addEventListener("submit", playHorn);
+let audio = document.createElement("audio");
+audio.id = "horn";
+let source = document.createElement("source");
+source.src = "./assets/media/audio/air-horn.mp3";
+source.type = "audio/mpeg";
+audio.appendChild(source);
+document.getElementsByTagName("main")[0].appendChild(audio);
+
+
+
+let button = document.getElementById("honk-btn");
+button.addEventListener("click", playHorn);
 
